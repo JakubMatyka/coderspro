@@ -1,9 +1,19 @@
-// dostęp do kluczy
+// Identyfikowanie typów referencyjnych
 
-var array = [];
+function add(a,b) {
+  return a + b;
+}
 
-array.push(234234);
+console.log(typeof add);
 
+var item = [];
+var obj = {};
 
-var method = 'push';
-array[method](5433);
+console.log(item instanceof Array); // true
+console.log(item instanceof Object); // true
+console.log(obj instanceof Object); // true
+console.log(obj instanceof Array); // false
+console.log(add instanceof Function); // true
+console.log(add instanceof Object); // true
+
+console.log(Array.isArray(item));
