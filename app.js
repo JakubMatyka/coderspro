@@ -1,37 +1,31 @@
-// Parametry funkcji
+// Przeciążenia (overloading)
+// C++
+/*void funkcja (int);
 
-function show(value) {
-  return value;
+void funkcja (int, char);
+
+void funkcja (float, int);*/
+
+/*function message(mes) {
+  console.log(mes);
 }
 
-// Array.isArray(argument) - false
+function message() {
+  console.log('Default')
+}
 
-console.log(show('Hi')); // Hi
-console.log(show('Hi', 34)); // Hi
-console.log(show.length); // 1 - arność funkcji
+message('Hello');*/
 
-show = function () {
-  return arguments[0];
-};
+/*var message = new Function('message', 'console.log(message)');
+message = new Function('console.log("Default")');
+message('Hello');*/
 
-console.log(show('Hello')); // Hello
-console.log(show('Hello', 45)); // Hello
-console.log(show.length); // 0
-
-
-function sum() {
-  var result = 0;
-  var len = arguments.length;
-  var i = 0;
-
-  while(i < len) {
-    result += arguments[i];
-    i++;
+function message(message) {
+  if(arguments.length === 0) {
+    message = 'Default';
   }
-  return result;
+  console.log(message);
 }
 
-console.log(sum(1,5)); // 6
-console.log(sum(4,5,7)); // 16
-console.log(sum(3)); // 3
-console.log(sum()); // 0
+console.log(message('Hello')); // Hello
+console.log(message()); // Default
