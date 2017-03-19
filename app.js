@@ -1,5 +1,9 @@
-// literały wyrażń regularnych
+// dostęp do kluczy
 
-var numbers = /\d+/g;
+var array = [];
 
-var numbers2 = new RegExp('\\d+', 'g');
+array.push(234234);
+
+
+var method = 'push';
+array[method](5433);
