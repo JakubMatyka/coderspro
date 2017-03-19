@@ -1,31 +1,39 @@
-// Przeciążenia (overloading)
-// C++
-/*void funkcja (int);
+// Obiekt this
 
-void funkcja (int, char);
-
-void funkcja (float, int);*/
-
-/*function message(mes) {
-  console.log(mes);
-}
-
-function message() {
-  console.log('Default')
-}
-
-message('Hello');*/
-
-/*var message = new Function('message', 'console.log(message)');
-message = new Function('console.log("Default")');
-message('Hello');*/
-
-function message(message) {
-  if(arguments.length === 0) {
-    message = 'Default';
+/*var person = {
+  name: 'Piotr',
+  logName: function () {
+    console.log(person.name)
   }
-  console.log(message);
+};
+
+person.logName();*/
+
+/*var person = {
+  name: 'Piotr',
+  logName: function () {
+    console.log(this.name)
+  }person
+};
+
+person.logName();*/
+
+function allSayHello() {
+  console.log(this.name)
 }
 
-console.log(message('Hello')); // Hello
-console.log(message()); // Default
+var person1 = {
+  name: 'Piter',
+  sayHello: allSayHello
+};
+
+var person2 = {
+  name: 'Karol',
+  sayHello: allSayHello
+};
+
+var name = 'Kinga';
+
+console.log(person1.sayHello()); // Piter
+console.log(person2.sayHello()); // Karol
+console.log(allSayHello()); // Kinga
