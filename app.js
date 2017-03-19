@@ -1,16 +1,39 @@
-// Objekty - działania modyfikacje
+// Objekty - wykrywanie właściwości
 
-var person1 = {
-  name: 'Paweł'
+// NIEEEEEEEEEEEEE!!!!!!!!!!
+/*var person = {
+  number: 0
 };
 
-var person2 = new Object();
+if (person.number) {
+  console.log('true');
+} else {
+  console.log('false');
+}*/
 
-// dodanie [[Put]]
-person2.name = 'Beata';
-person1.age = 22;
-person2.age = 33;
+// OK
+/*var person1 = {
+  name: 'asdasd',
+  age: 34
+};
 
-// modyfikacji [[Set]]
-person1.name = 'Grześ';
-person2.name = 'Rafał';
+var person2 = {
+  name: 'Jduasdas',
+  age: 654
+};
+
+console.log('name' in person1); // true
+console.log('age' in person2); // true
+console.log('height' in person2); // false*/
+
+var person1 = {
+  name: 'asdasd',
+  logName: function () {
+    console.log(this.name);
+  }
+};
+
+console.log('name' in person1); // true
+console.log(person1.hasOwnProperty('name')); // true
+console.log('toString' in person1); // true
+console.log(person1.hasOwnProperty('toString')); // false
