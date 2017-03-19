@@ -1,20 +1,7 @@
-// Zadanie 1
-
-function keys(obj) {
-  var arrKeys = []
-  var key;
-  for(key in obj) {
-    if(obj.hasOwnProperty(key)) {
-      arrKeys.push(key)
-    }
-  }
-  return arrKeys;
-}
-
-var obj = {
-  red: 'dasdasd',
-  green: 'sdfsdf',
-  blue: 'asdfsdf'
+Date.prototype.addDay = function () {
+  return new Date(this.setDate(this.getDate() + 1));
 };
 
-console.log(keys(obj)); // ['red', 'green', 'blue']
+var now = new Date();
+
+now.addDay();
