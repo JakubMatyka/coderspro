@@ -1,21 +1,5 @@
-// literały obiektów i tablic
+// literały wyrażń regularnych
 
-var car  = {
-  manufacturer: "Ford",
-  model: 'Mondeo'
-};
+var numbers = /\d+/g;
 
-var car1  = {
-  'manufacturer origin': "Ford",
-  model: 'Mondeo'
-};
-
-var car2;
-
-car2.manufacturer = 'Fiat';
-car2.model = '500';
-
-// literał tablic
-
-var arr = ['red', 'green', 'blue'];
-console.log(arr[1]); 
+var numbers2 = new RegExp('\\d+', 'g');
