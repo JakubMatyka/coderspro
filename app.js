@@ -1,20 +1,17 @@
-// Funkcje
+// Funkcja jako wartość
 
-// Właściwość typu Function - [[Call]]
+function sayHello() {
+  console.log('Hi');
+}
 
-// deklaracja funkcji
-// var sum = add(3, 4);
-// // console.log(sum); // 7
+sayHello();
+var sayHello2 = sayHello;
+
 //
-// function add(a, b) {
-//   return a + b;
-// }
+var numbers = [1, 45, 2, 4, 6, 78, 11]; // []
+console.log(numbers.sort());
 
-// wyrażenie funkcji
-var add;
-var result = add(3, 4);
-console.log(result); //
-
-add = function(a, b) {
-  return a + b;
-};
+var foo = numbers.sort(function (a, b) {
+  return a - b;
+});
+console.log(foo);
