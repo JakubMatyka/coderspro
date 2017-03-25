@@ -1,15 +1,11 @@
-// accumulator function
+// PIN VALIDATION function
 
-function accumulator(str) {
-    var response = [];
-    for(var i = 0; i < str.length; i++) {
-        var wordish = '';
-        for(var j = 0; j < i + 1; j++) {
-            wordish += j===0 ? str[i].toUpperCase() : str[i].toLowerCase();
-        }
-        response.push(wordish);
-    }
-    return response.join('-');
+function pinValidator(str) {
+    return /^\d{4}$/g.test(str);
 }
 
-accumulator("abcd");    // "A-Bb-Ccc-Dddd"
+// pinValidator("abcd"); // false
+// pinValidator("a123"); // false
+// pinValidator("123"); // false
+// pinValidator("12345"); // false
+// pinValidator("1234"); // true
