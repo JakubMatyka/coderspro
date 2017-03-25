@@ -1,29 +1,50 @@
 // Atrybuty wspólne
 
-// [[Enumerable]] , [[Configuarbale]]
-
-// Do zmiany tych właściwości używamy metody Object.defineProperty()
+// [[Value]], [[Writable]]
 
 (function(){
     "use strict";
-
     var person = {
-        name: 'Ula'
+      name: 'Kondrad'
+    };
+})();
+
+// IIFE
+(function(){
+    "use strict";
+    var person = {};
+    Object.defineProperty(person, 'name', {
+        value: 'Paweł',
+        enumerable: true,
+        configuarable: true,
+        writable: true
+    });
+})();
+
+
+// Object.seal()
+// extensible i configurable ustawia na false
+
+(function(){
+    "use strict";
+    var person = {
+      name: 'person'
     };
 
-    console.log(person.propertyIsEnumerable('name')); // true
+    console.log(Object.isExtensible(person)); // true
+    console.log(Object.isSealed(person)); // false
 
-    Object.defineProperty(person, 'name', {
-        configurable: false
-    });
+    Object.seal(person);
+    console.log(Object.isExtensible(person)); // false
+    console.log(Object.isSealed(person)); // true
 
-    Object.defineProperty(person, 'name', {
-        enumerable: false
-    });
+    person.sayHello = function () {
+        console.log(this.name);
+    };
 
-    console.log(person.propertyIsEnumerable('name')); // false
+    // sprawdzimy istnienie metodu
+    console.log('sayHello' in person); // false
 
-    Object.defineProperty(person, 'name', {
-        configurable: true
-    });
+    person.name = 'abcd';
+    console.log(person.name); // 'person'
 })();
