@@ -1,50 +1,28 @@
 // Atrybuty wspólne
 
-// [[Value]], [[Writable]]
+// Object.freeze(); - po wykonanniu nie można dodawać ani usuwać właściwości
 
 (function(){
     "use strict";
     var person = {
       name: 'Kondrad'
     };
-})();
-
-// IIFE
-(function(){
-    "use strict";
-    var person = {};
-    Object.defineProperty(person, 'name', {
-        value: 'Paweł',
-        enumerable: true,
-        configuarable: true,
-        writable: true
-    });
-})();
-
-
-// Object.seal()
-// extensible i configurable ustawia na false
-
-(function(){
-    "use strict";
-    var person = {
-      name: 'person'
-    };
 
     console.log(Object.isExtensible(person)); // true
-    console.log(Object.isSealed(person)); // false
+    console.log(Object.isFrozen(person)); // false
 
-    Object.seal(person);
-    console.log(Object.isExtensible(person)); // false
-    console.log(Object.isSealed(person)); // true
+    Object.freeze(person);
+    console.log(Object.isFrozen(person)); // true
 
-    person.sayHello = function () {
-        console.log(this.name);
+    person.sayGoodbye = function () {
+        console.log('Say godbye ', this.name)
     };
 
-    // sprawdzimy istnienie metodu
-    console.log('sayHello' in person); // false
+    console.log('sayGoodbye' in person); // false
 
-    person.name = 'abcd';
-    console.log(person.name); // 'person'
+    person.name = 'Piotr';
+    console.log(person.name); // 'Konrad'
+
+    delete person.name;
+    console.log('name' in person); // true
 })();
