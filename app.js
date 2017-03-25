@@ -1,15 +1,21 @@
-// Wyliczeniach
+// Setter getter
 
-var obj = {
-  string: 'abc'
+var person = {
+  _name: 'Marcin',
+    // musi zwrócić wartość
+    get name() {
+    // w stringu można dodać %s i jako kolejny argument zmienną
+      console.log(`Hello ${this._name}`);
+      return this._name;
+    },
+    // musi dostać argument
+    set name(value) {
+      console('Zmiana wartości %s', value);
+      this._name = value;
+    }
 };
 
-for(var property in obj) {
-  console.log(property); // nazwa właściwości
-  console.log(obj[property]); // wartość właściwości
-}
+console.log(person.name);
 
-// _proto_ nie będzie wylistowane ponieważ [[Enumerable]] jest ustawione na false
-console.log(Object.keys(obj));
-console.log(property.propertyIsEnumerable('__proto__'));
-
+person.name = 'Zosia';
+console.log(person.name);
