@@ -1,7 +1,13 @@
-Date.prototype.addDay = function () {
-  return new Date(this.setDate(this.getDate() + 1));
+// Definiowaniem właściwości
+
+var person  = {
+  name: 'Kuba'
 };
 
-var now = new Date();
+person.age = 12;
 
-now.addDay();
+// [[Put]] wewnętrzna metoda JS do tworzenia nowych właściwośći
+
+// [[Set]]
+person.name = 'Bartek';
+console.log(person.name); // 'Bartek'
