@@ -1,14 +1,22 @@
-// Wykrywanie właściwości
+// Usuwanie właściwości objektu
 
-if(person.age) {
-  //
-}
-
-var car = {
-  manufacturer: 'Ford'
+var animal = {
+  gender: 'female'
 };
 
-console.log('manufacturer' in car); // true
+console.log(animal.gender); // 'female'
 
-// Warunek if zwróci false gdy będzie równe: null, undefined, 0, false, NaN, ''
+// delete
+
+delete animal.gender;
+console.log(animal.gender); //
+
+// drugi sposób to przypisanie wartości null
+animal.gender = ' female';
+console.log(animal.gender); // female
+animal.gender = null;
+
+// doesnt work - właściwość ma wartość null i mozna ją wykryć poprzez użycie hasOwnProperty
+console.log(animal.gender); //
+
 
