@@ -1,21 +1,29 @@
-// Setter getter
+// Atrybuty wspólne
 
-var person = {
-  _name: 'Marcin',
-    // musi zwrócić wartość
-    get name() {
-    // w stringu można dodać %s i jako kolejny argument zmienną
-      console.log(`Hello ${this._name}`);
-      return this._name;
-    },
-    // musi dostać argument
-    set name(value) {
-      console('Zmiana wartości %s', value);
-      this._name = value;
-    }
-};
+// [[Enumerable]] , [[Configuarbale]]
 
-console.log(person.name);
+// Do zmiany tych właściwości używamy metody Object.defineProperty()
 
-person.name = 'Zosia';
-console.log(person.name);
+(function(){
+    "use strict";
+
+    var person = {
+        name: 'Ula'
+    };
+
+    console.log(person.propertyIsEnumerable('name')); // true
+
+    Object.defineProperty(person, 'name', {
+        configurable: false
+    });
+
+    Object.defineProperty(person, 'name', {
+        enumerable: false
+    });
+
+    console.log(person.propertyIsEnumerable('name')); // false
+
+    Object.defineProperty(person, 'name', {
+        configurable: true
+    });
+})();
