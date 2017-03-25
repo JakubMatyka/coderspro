@@ -42,13 +42,18 @@
         this.name = name;
     }
 
-    // definiowanie wielu metod na raz w prototypie
-    Person.prototype = {
-        sayHello: function () {
-            // asdadsas
-        },
-        toString: function () {
-            //
-        }
-    }
+   var person1 = new Person('Zosia');
+   var person2 = new Person('Tosia');
+
+   Object.freeze(person1);
+
+   Person.prototype.sayHi = function() {
+       console.log('Hi');
+   };
+
+   person1.sayHi(); // 'Hi'
+   person2.sayHi(); // 'Hi'
+
+    person1.name = 'skljdfasgd'; // nie zadziała
+    person2.name = 'lajskdha'; // zadziała
 })();
