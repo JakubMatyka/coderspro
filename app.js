@@ -1,11 +1,24 @@
-// PIN VALIDATION function
+// sort string
+function sortString(arr) {
+    // zadeklarowac zmienna przechowujaca tymczasowa tablice z przefiltrowanymi stringami
+    // zamiana znaków specjalnych na puste (regexp)
+    // odfiltrowana tablice posortowac po dlugosci (length)
 
-function pinValidator(str) {
-    return /^\d{4}$/g.test(str);
+    // sort string
+    function sortString(arr) {
+        var tempArr = [];
+        for(var i=0; i<arr.length; i++) {
+            tempArr.push(arr[i].replace(/\W/g, ''));
+        }
+
+        return tempArr.sort(function(x,y){
+            return x.length-y.length;
+        })
+    }
+
+
+    console.log(sortString(['aa$566a','bb','ccccccc','d'])) // posortować; bonus usunąc wszystkie znaki oprócz liter
 }
 
-// pinValidator("abcd"); // false
-// pinValidator("a123"); // false
-// pinValidator("123"); // false
-// pinValidator("12345"); // false
-// pinValidator("1234"); // true
+
+sortString(['fdsaas','fd&898433ss','fdsdfff','fdsssdf']); // posortować; bonus usunąc wszystkie znaki oprócz liter
